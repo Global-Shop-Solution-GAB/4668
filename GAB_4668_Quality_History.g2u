@@ -1,0 +1,961 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.frmQual..Create(BaseForm)
+Gui.frmQual..Size(15270,9825)
+Gui.frmQual..MinX(15270)
+Gui.frmQual..MinY(9825)
+Gui.frmQual..Position(0,0)
+Gui.frmQual..BackColor(-2147483633)
+Gui.frmQual..MousePointer(0)
+Gui.frmQual..Caption("Quality History")
+Gui.frmQual..Event(Resize,frmQual_Resize)
+Gui.frmQual..Event(UnLoad,frmQual_UnLoad)
+Gui.frmQual..AlwaysOnTop(False)
+Gui.frmQual..FontName("Tahoma")
+Gui.frmQual..FontSize(8.25)
+Gui.frmQual..ControlBox(True)
+Gui.frmQual..MaxButton(True)
+Gui.frmQual..MinButton(True)
+Gui.frmQual..Moveable(True)
+Gui.frmQual..Sizeable(True)
+Gui.frmQual..ShowInTaskBar(True)
+Gui.frmQual..TitleBar(True)
+Gui.frmQual.tabQual.Create(Tab)
+Gui.frmQual.tabQual.Size(15090,8505)
+Gui.frmQual.tabQual.Position(45,1065)
+Gui.frmQual.tabQual.Enabled(True)
+Gui.frmQual.tabQual.Visible(True)
+Gui.frmQual.tabQual.Zorder(0)
+Gui.frmQual.tabQual.FontName("Tahoma")
+Gui.frmQual.tabQual.FontSize(8.25)
+Gui.frmQual.tabQual.Tabs(2)
+Gui.frmQual.tabQual.SetTab(0)
+Gui.frmQual.tabQual.Caption("Cost")
+Gui.frmQual.tabQual.SetTab(1)
+Gui.frmQual.tabQual.Caption("Quantity")
+Gui.frmQual.GsGCQty.Create(GsGridControl)
+Gui.frmQual.GsGCQty.Size(14970,4005)
+Gui.frmQual.GsGCQty.Position(0,4080)
+Gui.frmQual.GsGCQty.Parent("tabQual",1)
+Gui.frmQual.GsGCQty.Enabled(True)
+Gui.frmQual.GsGCQty.Visible(True)
+Gui.frmQual.GsGCQty.Zorder(0)
+Gui.frmQual.GsChartQty.Create(GsChart)
+Gui.frmQual.GsChartQty.Size(14970,4005)
+Gui.frmQual.GsChartQty.Position(0,15)
+Gui.frmQual.GsChartQty.Parent("tabQual",1)
+Gui.frmQual.GsChartQty.Enabled(True)
+Gui.frmQual.GsChartQty.Visible(True)
+Gui.frmQual.GsChartQty.Zorder(0)
+Gui.frmQual.GsGCCost.Create(GsGridControl)
+Gui.frmQual.GsGCCost.Size(14970,4005)
+Gui.frmQual.GsGCCost.Position(0,4080)
+Gui.frmQual.GsGCCost.Parent("tabQual",0)
+Gui.frmQual.GsGCCost.Enabled(True)
+Gui.frmQual.GsGCCost.Visible(True)
+Gui.frmQual.GsGCCost.Zorder(0)
+Gui.frmQual.GsChartCost.Create(GsChart)
+Gui.frmQual.GsChartCost.Size(14970,4005)
+Gui.frmQual.GsChartCost.Position(0,15)
+Gui.frmQual.GsChartCost.Parent("tabQual",0)
+Gui.frmQual.GsChartCost.Enabled(True)
+Gui.frmQual.GsChartCost.Visible(True)
+Gui.frmQual.GsChartCost.Zorder(0)
+Gui.frmQual.pbStatus.Create(ProgressBar)
+Gui.frmQual.pbStatus.Size(2490,240)
+Gui.frmQual.pbStatus.Position(2895,735)
+Gui.frmQual.pbStatus.Visible(False)
+Gui.frmQual.pbStatus.Max(100)
+Gui.frmQual.lblStatus.Create(Label,"****Change****",False,2490,180,0,2895,555,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmQual.lblStatus.BorderStyle(0)
+Gui.frmQual.picGSSLogo.Create(PictureBox)
+Gui.frmQual.picGSSLogo.Size(4125,960)
+Gui.frmQual.picGSSLogo.Position(5490,45)
+Gui.frmQual.picGSSLogo.Event(DblClick,picGSSLogo_DblClick)
+Gui.frmQual.picGSSLogo.ToolTip("Double-Click for additional functions")
+Gui.frmQual.picGSSLogo.Enabled(True)
+Gui.frmQual.picGSSLogo.Visible(True)
+Gui.frmQual.picGSSLogo.Zorder(0)
+Gui.frmQual.frameOpts.Create(Frame)
+Gui.frmQual.frameOpts.Size(2775,1005)
+Gui.frmQual.frameOpts.Position(45,15)
+Gui.frmQual.frameOpts.Caption("Search By")
+Gui.frmQual.frameOpts.Enabled(True)
+Gui.frmQual.frameOpts.Visible(True)
+Gui.frmQual.frameOpts.Zorder(0)
+Gui.frmQual.frameOpts.FontName("Tahoma")
+Gui.frmQual.frameOpts.FontSize(8.25)
+Gui.frmQual.cboPL.Create(ComboBox)
+Gui.frmQual.cboPL.Size(2610,330)
+Gui.frmQual.cboPL.Position(90,600)
+Gui.frmQual.cboPL.Parent("frameOpts")
+Gui.frmQual.cboPL.Enabled(False)
+Gui.frmQual.cboPL.Visible(False)
+Gui.frmQual.cboPL.Zorder(0)
+Gui.frmQual.cboPL.FontName("Tahoma")
+Gui.frmQual.cboPL.FontSize(8.25)
+Gui.frmQual.cboPL.Event(Change,cboPL_Click)
+Gui.frmQual.cboPart.Create(ComboBox)
+Gui.frmQual.cboPart.Size(2610,330)
+Gui.frmQual.cboPart.Position(90,600)
+Gui.frmQual.cboPart.Parent("frameOpts")
+Gui.frmQual.cboPart.Enabled(False)
+Gui.frmQual.cboPart.Visible(False)
+Gui.frmQual.cboPart.Zorder(0)
+Gui.frmQual.cboPart.FontName("Tahoma")
+Gui.frmQual.cboPart.FontSize(8.25)
+Gui.frmQual.cboPart.Event(Change,cboPart_Click)
+Gui.frmQual.ddlOpts.Create(DropDownList)
+Gui.frmQual.ddlOpts.Size(2610,330)
+Gui.frmQual.ddlOpts.Position(90,225)
+Gui.frmQual.ddlOpts.Parent("frameOpts")
+Gui.frmQual.ddlOpts.Enabled(True)
+Gui.frmQual.ddlOpts.Visible(True)
+Gui.frmQual.ddlOpts.Zorder(0)
+Gui.frmQual.ddlOpts.FontName("Tahoma")
+Gui.frmQual.ddlOpts.FontSize(8.25)
+Gui.frmQual.ddlOpts.Event(Change,SelectOpts)
+Gui.frmQual.lblMons.Create(Label,"Months:",True,675,255,0,2895,225,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmQual.lblMons.BorderStyle(0)
+Gui.frmQual.txtMons.Create(TextBox,"",True,360,300,0,3585,180,True,0,"Arial",8,-2147483643,1)
+Gui.frmQual.txtMons.Event(KeyPressEnter,txtMons_KeyPressEnter)
+Gui.frmQual.txtMons.NumericOnly(2)
+Gui.frmWeb..Create(BaseForm)
+Gui.frmWeb..Caption("Global Shop Solutions - Web Sites")
+Gui.frmWeb..Size(3990,1665)
+Gui.frmWeb..MinX(0)
+Gui.frmWeb..MinY(0)
+Gui.frmWeb..Position(0,0)
+Gui.frmWeb..BackColor(-2147483633)
+Gui.frmWeb..MousePointer(0)
+Gui.frmWeb..MaxButton(False)
+Gui.frmWeb..Sizeable(False)
+Gui.frmWeb..Event(UnLoad,frmWeb_UnLoad)
+Gui.frmWeb..MinButton(False)
+Gui.frmWeb..AlwaysOnTop(False)
+Gui.frmWeb..FontName("Tahoma")
+Gui.frmWeb..FontSize(8.25)
+Gui.frmWeb..ControlBox(True)
+Gui.frmWeb..Moveable(True)
+Gui.frmWeb..ShowInTaskBar(True)
+Gui.frmWeb..TitleBar(True)
+Gui.frmWeb.cmdGSS.Create(Button)
+Gui.frmWeb.cmdGSS.Size(3615,375)
+Gui.frmWeb.cmdGSS.Position(120,45)
+Gui.frmWeb.cmdGSS.Caption("Global Shop Solutions")
+Gui.frmWeb.cmdGSS.Event(Click,cmdGSS_Click)
+Gui.frmWeb.cmdGSS.Enabled(True)
+Gui.frmWeb.cmdGSS.Visible(True)
+Gui.frmWeb.cmdGSS.Zorder(0)
+Gui.frmWeb.cmdGSS.FontName("Tahoma")
+Gui.frmWeb.cmdGSS.FontSize(8.25)
+Gui.frmWeb.cmdServ.Create(Button)
+Gui.frmWeb.cmdServ.Size(3615,375)
+Gui.frmWeb.cmdServ.Position(120,450)
+Gui.frmWeb.cmdServ.Caption("ServiceWeb")
+Gui.frmWeb.cmdServ.Event(Click,cmdServ_Click)
+Gui.frmWeb.cmdServ.Enabled(True)
+Gui.frmWeb.cmdServ.Visible(True)
+Gui.frmWeb.cmdServ.Zorder(0)
+Gui.frmWeb.cmdServ.FontName("Tahoma")
+Gui.frmWeb.cmdServ.FontSize(8.25)
+Gui.frmWeb.cmdUpd.Create(Button)
+Gui.frmWeb.cmdUpd.Size(3615,375)
+Gui.frmWeb.cmdUpd.Position(120,855)
+Gui.frmWeb.cmdUpd.Caption("GSS Updates")
+Gui.frmWeb.cmdUpd.Event(Click,cmdUpd_Click)
+Gui.frmWeb.cmdUpd.Enabled(True)
+Gui.frmWeb.cmdUpd.Visible(True)
+Gui.frmWeb.cmdUpd.Zorder(0)
+Gui.frmWeb.cmdUpd.FontName("Tahoma")
+Gui.frmWeb.cmdUpd.FontSize(8.25)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+	V.Global.sGvCostSerialize.Declare
+	V.Global.sGvQtySerialize.Declare
+	V.Global.bLoadData.Declare
+	V.Global.sFieldName.Declare
+	V.Global.sData.Declare
+	V.Global.bLongPart.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.bGroup.Declare
+	V.Local.sIcon.Declare
+	V.Local.sGssLogo.Declare
+	V.Local.iRegistry.Declare
+
+	F.Intrinsic.String.Build("{0}\GAB\GAS\gss2.ico",V.Caller.PluginsDir,v.Local.sIcon)
+	F.Intrinsic.String.Build("{0}\GAB\GAS\GAB_GSS_Logo_Green_Dash.png",V.Caller.PluginsDir,V.Local.sGssLogo)
+	Gui.frmWeb..Icon(V.Local.sIcon)
+	Gui.frmQual..Icon(V.Local.sIcon)
+	Gui.frmQual.picGSSLogo.Picture(V.Local.sGssLogo)
+
+	F.Intrinsic.Control.CallSub(SetAnchors)
+	F.Intrinsic.Control.CallSub(CheckLongPart)
+	F.Intrinsic.Control.CallSub(SetContextMenus)
+
+	Gui.frmQual.tabQual.SetTab(0)
+	
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"4668",4668,1,1,"",V.Local.iRegistry)
+	F.Intrinsic.Control.If(V.Local.iRegistry,>,0)
+		Gui.frmQual.txtMons.Text(V.Local.iRegistry)
+	F.Intrinsic.Control.Else
+		Gui.frmQual.txtMons.Text("6")
+		F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"4668",4668,1,False,"Months",True,V.Screen.frmQual!txtMons.Text,-999.0,1/1/1980,12:00:00 AM,"Months")
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.BlockEvents
+	F.Intrinsic.Control.CallSub(LoadDdl)
+	F.Intrinsic.Control.CallSub(LoadComboBoxes)
+	F.Intrinsic.Control.UnBlockEvents
+	Gui.frmQual..Show
+	F.Intrinsic.Control.CallSub(CheckDefault)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.frmQual_UnLoad.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.If(V.Global.bLoadData)
+		F.Intrinsic.Control.CallSub(Serialize)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.frmQual_UnLoad.End
+
+Program.Sub.frmQual_Resize.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	V.Local.fW.Declare
+	V.Local.fWBase.Declare
+	V.Local.fH.Declare
+	V.Local.fHBase.Declare
+	V.Local.fX.Declare
+	V.Local.fY.Declare
+	V.Local.fRet.Declare
+
+'	.Size(Width,Heigth)
+'	.Position(X,Y)
+
+	F.Intrinsic.Math.Sub(V.Screen.frmQual!tabQual.Width,15090,V.Local.fWBase)
+	F.Intrinsic.Math.Sub(V.Screen.frmQual!tabQual.Height,8505,V.Local.fHBase)
+	F.Intrinsic.Math.Div(V.Local.fHBase,2,V.Local.fHBase)
+	'Set size for all controls in the tabQual
+	F.Intrinsic.Math.Add(14970,V.Local.fWBase,V.Local.fW)
+	F.Intrinsic.Math.Add(4005,V.Local.fHBase,V.Local.fH)
+	Gui.frmQual.GsChartCost.Size(V.Local.fW,V.Local.fH)
+	Gui.frmQual.GsGCCost.Size(V.Local.fW,V.Local.fH)
+	Gui.frmQual.GsChartQty.Size(V.Local.fW,V.Local.fH)
+	Gui.frmQual.GsGCQty.Size(V.Local.fW,V.Local.fH)
+	'Set Position for Charts
+	Gui.frmQual.GsChartCost.Position(V.Screen.frmQual!GsChartCost.Left,V.Screen.frmQual!GsChartCost.Top)
+	Gui.frmQual.GsChartQty.Position(V.Screen.frmQual!GsChartQty.Left,V.Screen.frmQual!GsChartQty.Top)
+	'Set Position for Grids
+	F.Intrinsic.Math.Add(V.Screen.frmQual!GsChartCost.Top,V.Screen.frmQual!GsChartCost.Height,50,V.Local.fY)
+	Gui.frmQual.GsGCCost.Position(V.Screen.frmQual!GsGCCost.Left,V.Local.fY)
+	Gui.frmQual.GsGCQty.Position(V.Screen.frmQual!GsGCQty.Left,V.Local.fY)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.frmQual_Resize.End
+
+Program.Sub.SetAnchors.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	'0 - None
+	'1 - Top
+	'2 - Bottom
+	'4 - Left
+	'8 - Right
+
+	Gui.frmQual.picGSSLogo.Anchor(1)
+	Gui.frmQual.tabQual.Anchor(15)
+	
+	Gui.frmQual.txtMons.Alignment(2)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetAnchors.End
+
+Program.Sub.CheckLongPart.Start
+	F.Global.General.ReadOption("400861",0,False,"0000",V.Global.bLongPart)
+	F.Intrinsic.Control.If(V.Global.bLongPart,=,False)
+		F.Global.General.ReadOption("400861",0,False,"0004",V.Global.bLongPart)
+	F.Intrinsic.Control.EndIf
+Program.Sub.CheckLongPart.End
+
+Program.Sub.SetContextMenus.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmQual..ContextMenuCreate("ctxCost")
+	Gui.frmQual.GsGCCost.ContextMenuAttach("ctxCost")
+	Gui.frmQual..ContextMenuAddItem("ctxCost","Refresh",0,"Refresh")
+	Gui.frmQual..ContextMenuSetItemEventHandler("ctxCost","Refresh","MenuClickRefresh")
+	Gui.frmQual..ContextMenuAddItem("ctxCost","Export",0,"Export")
+	Gui.frmQual..ContextMenuSetItemEventHandler("ctxCost","Export","MenuClickExport")
+	Gui.frmQual..ContextMenuAddItem("ctxCost","ResetColumns",0,"Reset Columns")
+	Gui.frmQual..ContextMenuSetItemEventHandler("ctxCost","ResetColumns","MenuClickResetColumns")
+	
+	Gui.frmQual..ContextMenuCreate("ctxQty")
+	Gui.frmQual.GsGCQty.ContextMenuAttach("ctxQty")
+	Gui.frmQual..ContextMenuAddItem("ctxQty","Refresh",0,"Refresh")
+	Gui.frmQual..ContextMenuSetItemEventHandler("ctxQty","Refresh","MenuClickRefresh")
+	Gui.frmQual..ContextMenuAddItem("ctxQty","Export",0,"Export")
+	Gui.frmQual..ContextMenuSetItemEventHandler("ctxQty","Export","MenuClickExport")
+	Gui.frmQual..ContextMenuAddItem("ctxQty","ResetColumns",0,"Reset Columns")
+	Gui.frmQual..ContextMenuSetItemEventHandler("ctxQty","ResetColumns","MenuClickResetColumns")
+	
+	Gui.frmQual..ContextMenuCreate("ctxChartCost")
+	Gui.frmQual.GsChartCost.ContextMenuAttach("ctxChartCost")
+	Gui.frmQual..ContextMenuAddItem("ctxChartCost","Export",0,"Export")
+	Gui.frmQual..ContextMenuSetItemEventHandler("ctxChartCost","Export","MenuClickExport")
+	
+	Gui.frmQual..ContextMenuCreate("ctxChartQty")
+	Gui.frmQual.GsChartQty.ContextMenuAttach("ctxChartQty")
+	Gui.frmQual..ContextMenuAddItem("ctxChartQty","Export",0,"Export")
+	Gui.frmQual..ContextMenuSetItemEventHandler("ctxChartQty","Export","MenuClickExport")
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetContextMenus.End
+
+Program.Sub.MenuClickRefresh.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.CallSub(LoadData)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickRefresh.End
+
+Program.Sub.MenuClickExport.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sFileExport.Declare
+	V.Local.bExcel.Declare
+	V.Local.bFileLocked.Declare
+	V.Local.sMsg.Declare
+	V.Local.iRet.Declare
+	V.Local.sForm.Declare(String,"frmQual")
+	V.Local.sControl.Declare
+	V.Local.bChart.Declare
+
+	V.Local.bChart.Set(False)
+	F.Intrinsic.Control.SelectCase(V.Args.MenuName)
+		F.Intrinsic.Control.Case("CTXCOST")
+			V.Local.sControl.Set("GsGCCost")
+		F.Intrinsic.Control.Case("CTXQTY")
+			V.Local.sControl.Set("GsGCQty")
+		F.Intrinsic.Control.Case("CTXCHARTCOST")
+			V.Local.bChart.Set(True)
+			V.Local.sControl.Set("gsChartCost")
+		F.Intrinsic.Control.Case("CTXCHARTQTY")
+			V.Local.bChart.Set(True)
+			V.Local.sControl.Set("gsChartQty")
+	F.Intrinsic.Control.EndSelect
+
+	F.Intrinsic.Control.If(V.Local.bChart,=,False)
+		F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+		F.Intrinsic.Control.If(V.Local.bExcel)
+			F.Intrinsic.String.Build("{0}\GAB_{1}_Export.xlsx",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.[V.Local.sForm].[V.Local.sControl].Export(V.Local.sFileExport,"xlsx")
+				F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0}\GAB_{1}_Export.csv",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.[V.Local.sForm].[V.Local.sControl].Export(V.Local.sFileExport,"csv")
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("{0}\{1}.jpg",V.Caller.LocalGSSTempDir,V.Local.sControl,V.Local.sFileExport)
+		Gui.[V.Local.sForm].[V.Local.sControl].ImageToFile("JPEG",V.Local.sFileExport)
+		F.Intrinsic.Task.ShellExec(0,"Open",V.Local.sFileExport,"","",0)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickExport.End
+
+Program.Sub.MenuClickResetColumns.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.bSerialize.Declare
+	
+	F.Intrinsic.Control.SelectCase(V.Args.MenuName)
+		F.Intrinsic.Control.Case("CTXCOST")
+			F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVQUALHISTCOST",4668,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,"")
+
+		F.Intrinsic.Control.Case("CTXQTY")
+			F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVQUALHISTQTY",4668,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,"")
+	F.Intrinsic.Control.EndSelect
+	
+	V.Global.bLoadData.Set(False)
+	F.Intrinsic.Control.CallSub(LoadData)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickResetColumns.End
+
+Program.Sub.LoadComboBoxes.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.ODBC.Connection!con.OpenCompanyConnection(300)
+	
+	'PLs
+'	F.Data.DataTable.CreateFromSQL("dtPL","con","Select RTrim(Product_Line) As PL From V_Product_Line Where Product_Line <> '' Union Select 'All PLs' As PL From V_Product_Line Order by PL;",True)
+	F.Intrinsic.Control.If(V.Caller.GSSVersion,<,"2019.1")
+		F.Data.DataTable.CreateFromSQL("dtPL","con","Select RTrim(Product_Line) As PL From V_Product_Line Where Product_Line <> '' Union Select '0-All PLs' As PL From V_Product_Line;",True)
+	F.Intrinsic.Control.Else
+		F.Data.DataTable.CreateFromSQL("dtPL","con","Select RTrim(Prod_Line) As PL From V_PL_MASTER Where Prod_Line <> '' Union Select '0-All PLs' As PL From V_PL_MASTER;",True)
+	F.Intrinsic.Control.EndIf
+	
+	Gui.frmQual.cboPL.AddItems("DataTable","dtPL","PL","PL")
+	Gui.frmQual.cboPL.Text("")
+	'Parts
+'	F.Data.DataTable.CreateFromSQL("dtPart","con","Select '0-All Parts' As Part From V_Quality Union Select RTrim(Part) As Part From V_Quality Order By Part;",True)
+'	F.Data.DataTable.CreateFromSQL("dtPart","con","Select '0-All Parts' As Part From V_Quality Union Select RTrim(Part) As Part From V_Quality;",True)
+	F.Data.DataTable.CreateFromSQL("dtPart","con","Select '0-All Parts' As Part From V_Quality Union Select RTrim(Part) As Part From V_Qual_Hist;",True)
+	Gui.frmQual.cboPart.AddItems("DataTable","dtPart","Part","Part")
+	Gui.frmQual.cboPart.Text("")
+	
+	F.ODBC.Connection!con.Close
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadComboBoxes.End
+
+Program.Sub.LoadDdl.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.iCnt.Declare
+	
+	Gui.frmQual.ddlOpts.ClearItems
+	Gui.frmQual.ddlOpts.AddItem("PL",0)
+	Gui.frmQual.ddlOpts.AddItem("Part",1)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadDdl.End
+
+Program.Sub.CheckDefault.Start
+	V.Local.sRegistry.Declare
+	
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"4668",4668,0,5,"",V.Local.sRegistry)
+	F.Intrinsic.Control.If(V.Local.sRegistry,<>,"")
+		Gui.frmQual.ddlOpts.Text(V.Local.sRegistry)
+	F.Intrinsic.Control.EndIf
+Program.Sub.CheckDefault.End
+
+Program.Sub.SelectOpts.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.If(V.Screen.frmQual!ddlOpts.Text,=,"PL")
+		Gui.frmQual.cboPL.Enabled(True)
+		Gui.frmQual.cboPL.Visible(True)
+		Gui.frmQual.cboPart.Enabled(False)
+		Gui.frmQual.cboPart.Visible(False)
+		F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"4668",4668,0,False,"PL",True,0,-999.0,1/1/1980,12:00:00 AM,"PL")
+		
+	F.Intrinsic.Control.ElseIf(V.Screen.frmQual!ddlOpts.Text,=,"Part")
+		Gui.frmQual.cboPL.Enabled(False)
+		Gui.frmQual.cboPL.Visible(False)
+		Gui.frmQual.cboPart.Enabled(True)
+		Gui.frmQual.cboPart.Visible(True)
+		F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"4668",4668,0,False,"Part",True,0,-999.0,1/1/1980,12:00:00 AM,"Part")
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.SelectOpts.End
+
+Program.Sub.cboPL_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.CallSub(LoadData)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.cboPL_Click.End
+
+Program.Sub.cboPart_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.CallSub(LoadData)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.cboPart_Click.End
+
+Program.Sub.txtMons_KeyPressEnter.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"4668",4668,1,False,"Months",True,V.Screen.frmQual!txtMons.Text,-999.0,1/1/1980,12:00:00 AM,"Months")
+	F.Intrinsic.Control.CallSub(LoadData)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.txtMons_KeyPressEnter.End
+
+Program.Sub.LoadData.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.If(V.Global.bLoadData)
+		F.Intrinsic.Control.CallSub(Serialize)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.CallSub(LoadQualityHistory)
+	V.Global.bLoadData.Set(True)
+	
+	F.Intrinsic.Control.CallSub(Deserialize)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadData.End
+
+Program.Sub.LoadQualityHistory.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSQL.Declare
+	V.Local.sFilter.Declare
+	V.Local.sPart.Declare
+	
+	F.Intrinsic.Control.If(V.DataTable.dtQualHist.Exists)
+		F.Data.DataTable.Close("dtQualHistData")
+		F.Data.DataTable.Close("dtQualHist")
+	F.Intrinsic.Control.EndIf
+	
+	V.Global.bLoadData.Set(True)
+	
+'	F.Intrinsic.String.Build("Select A.Control_Number, A.Disposition_Seq, Coalesce(B.Part,'') AS Part,'' As Display_Part, B.Location, B.Description, C.Product_Line As PL, A.Qty_Disposed, A.Disposed_Value, A.Disposition_Action, A.User_Disposed_By, A.Date_Disposed, A.Time_Disposed, A.New_PO_Number, A.New_PO_Line, A.New_Job, A.New_Suffix, Year(A.Date_Disposed) As Year, Month(A.Date_Disposed) As Month From V_Qual_Disp_Hist A Left Join V_Qual_Hist B On A.Control_Number = B.Control_Number Left Join V_Inventory_Mstr C On B.Part = C.Part And B.Location = C.Location Left Join V_Product_Line D On C.Product_Line = D.Product_Line Where A.Date_Disposed > DateAdd(Month,-{0},CurDate());",V.Screen.frmQual!txtMons.Text,V.Local.sSQL)
+	F.Intrinsic.String.Build("Select A.Cntrl_Number As Control_Number, A.Seq As Disposition_Seq, Coalesce(B.Part,'') AS Part, '' As Display_Part, B.Location, B.Description, C.Product_Line As PL, A.Qty_Disposed, A.Disposed_Value, A.Qhdis_Action As Disposition_Action, A.User_Disposed_By, A.Date_Disposed, A.Time_Disposed, A.New_PO_Number, A.New_PO_Line, A.New_WO As New_Job, A.New_WO_Suffix As New_Suffix, Year(A.Date_Disposed) As Year, Month(A.Date_Disposed) As Month From V_Qual_Disp_Hist A Left Join V_Qual_Hist B On A.Cntrl_Number = B.Cntrl_Number Left Join V_Inventory_Mstr C On B.Part = C.Part And B.Location = C.Location Left Join V_Product_Line D On C.Product_Line = D.Product_Line Where A.Date_Disposed > DateAdd(Month,-999,CurDate());",V.Screen.frmQual!txtMons.Text,V.Local.sSQL)
+
+	F.ODBC.Connection!con.OpenCompanyConnection(300)
+	F.Data.DataTable.CreateFromSQL("dtQualHistData","con",V.Local.sSQL,True)
+	F.Data.DataTable.AddDisplayPartColumn("dtQualHistData",0,"Part","Display_Part")
+	F.ODBC.Connection!con.Close
+	
+	V.Local.sFilter.Set("")
+	F.Intrinsic.Control.If(V.Screen.frmQual!ddlOpts.Text,=,"PL")
+		F.Intrinsic.Control.If(V.Screen.frmQual!cboPL.Text,<>,"0-All PLs")
+			F.Intrinsic.String.Build("PL = '{0}'",V.Screen.frmQual!cboPL.Text,V.Local.sFilter)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.ElseIf(V.Screen.frmQual!ddlOpts.Text,=,"Part")
+		F.Intrinsic.Control.If(V.Screen.frmQual!cboPart.Text,<>,"0-All Parts")
+			F.Intrinsic.String.Replace(V.Screen.frmQual!cboPart.Text,"'","''",V.Local.sPart)
+			F.Intrinsic.String.Build("Part = '{0}'",V.Local.sPart,V.Local.sFilter)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataView.Create("dtQualHistData","dvQualHistData",22,V.Local.sFilter,"")
+	F.Data.DataView.ToDataTable("dtQualHistData","dvQualHistData","dtQualHist",True)
+	F.Data.DataView.Close("dtQualHistData","dvQualHistData")
+
+	'Load Grids
+	F.Intrinsic.Control.CallSub(LoadGvQualityHistory)
+	'Load Charts
+	F.Intrinsic.Control.CallSub(LoadCharts)
+	'Remove Columns
+	F.Data.DataTable.RemoveColumn("dtQualHist","Year")
+	F.Data.DataTable.RemoveColumn("dtQualHist","Month")
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadQualityHistory.End
+
+Program.Sub.LoadGvQualityHistory.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.iCnt.Declare
+	V.Local.sGsGC.Declare
+	V.Local.sGsGCName.Declare
+	V.Local.sCaption.Declare
+	
+	V.Local.sGsGC.Redim(0,1)
+	V.Local.sGsGC(0).Set("GsGCCost")
+	V.Local.sGsGC(1).Set("GsGCQty")
+	
+	F.Intrinsic.Control.For(V.Local.iCnt,0,1,1)
+		V.Local.sGsGCName.Set(V.Local.sGsGC(V.Local.iCnt))
+		Gui.frmQual.[V.Local.sGsGCName].AddGridViewFromDataTable("gvQualHist","dtQualHist")
+		Gui.frmQual.[V.Local.sGsGCName].MainView("gvQualHist")
+		Gui.frmQual.[V.Local.sGsGCName].SuspendLayout()
+		Gui.frmQual.[V.Local.sGsGCName].SetGridViewProperty("gvQualHist","MultiSelect",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetGridViewProperty("gvQualHist","AllowSort",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetGridViewProperty("gvQualHist","AllowFilter",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetGridViewProperty("gvQualHist","Editable",False)
+		Gui.frmQual.[V.Local.sGsGCName].SetGridViewProperty("gvQualHist","ReadOnly",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetGridViewProperty("gvQualHist","ShowGroupPanel",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetGridViewProperty("gvQualHist","EnableAppearanceOddRow",True)
+		
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Time_Disposed","Visible",False)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_PO_Number","Visible",False)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_PO_Line","Visible",False)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_Job","Visible",False)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_Suffix","Visible",False)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Year","Visible",False)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Month","Visible",False)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Part","Visible",False)
+		
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Control_Number","Caption","Control Number")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposition_Seq","Caption","Seq")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Display_Part","Caption","Part")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Location","Caption","Loc")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Description","Caption","Description")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","PL","Caption","PL")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Qty_Disposed","Caption","Disposed Qty")
+		F.Intrinsic.String.Build("Disposed Value ({0})",V.Company.CurrencySymbol,V.Local.sCaption)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposed_Value","Caption",V.Local.sCaption)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposition_Action","Caption","Disposition")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","User_Disposed_By","Caption","Disposed By")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Date_Disposed","Caption","Disposed Date")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Time_Disposed","Caption","Disposed Time")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_PO_Number","Caption","New PO Number")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_PO_Line","Caption","New PO Line")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_Job","Caption","New Job")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_Suffix","Caption","New Suffix")
+
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Control_Number","MinWidth","100")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposition_Seq","MinWidth","40")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Display_Part","MinWidth","120")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Location","MinWidth","40")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Description","MinWidth","150")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","PL","MinWidth","40")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Qty_Disposed","MinWidth","85")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposed_Value","MinWidth","100")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposition_Action","MinWidth","165")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","User_Disposed_By","MinWidth","100")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Date_Disposed","MinWidth","90")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Time_Disposed","MinWidth","90")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_PO_Number","MinWidth","100")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_PO_Line","MinWidth","90")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_Job","MinWidth","90")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_Suffix","MinWidth","90")
+
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Control_Number","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposition_Seq","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Display_Part","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Location","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Description","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","PL","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Qty_Disposed","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposed_Value","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposition_Action","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","User_Disposed_By","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Date_Disposed","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Time_Disposed","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_PO_Number","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_PO_Line","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_Job","HeaderFontBold",True)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_Suffix","HeaderFontBold",True)
+
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Control_Number","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposition_Seq","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Display_Part","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Location","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Description","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","PL","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Qty_Disposed","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposed_Value","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposition_Action","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","User_Disposed_By","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Date_Disposed","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Time_Disposed","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_PO_Number","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_PO_Line","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_Job","HeaderHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_Suffix","HeaderHAlignment","Center")
+
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Control_Number","CellHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposition_Seq","CellHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Location","CellHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","PL","CellHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Qty_Disposed","CellHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Disposed_Value","CellHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","User_Disposed_By","CellHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Date_Disposed","CellHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Time_Disposed","CellHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_PO_Number","CellHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_PO_Line","CellHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_Job","CellHAlignment","Center")
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","New_Suffix","CellHAlignment","Center")
+
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Qty_Disposed","DisplayCustomNumeric","#,###,##0.00")
+
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Date_Disposed","DisplayCustomDatetime","d")
+		
+		F.Intrinsic.Control.If(V.Global.bLongPart)
+		Gui.frmQual.[V.Local.sGsGCName].SetColumnProperty("gvQualHist","Display_Part","MinWidth","250")
+	F.Intrinsic.Control.EndIf
+		
+		Gui.frmQual.[V.Local.sGsGCName].ResumeLayout()
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadGvQualityHistory.End
+
+Program.Sub.LoadCharts.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.iCnt.Declare
+	V.Local.iCnt2.Declare
+	V.Local.sYear.Declare
+	V.Local.iMonth.Declare
+	V.Local.sFilter.Declare
+	V.Local.fCost.Declare
+	V.Local.fQty.Declare
+	V.Local.sMonths.Declare
+	V.Local.sSeriesCost.Declare
+	V.Local.sSeriesQty.Declare
+	
+	V.Local.sMonths.Set("None*!*Jan*!*Feb*!*Mar*!*Apr*!*May*!*Jun*!*Jul*!*Aug*!*Sep*!*Oct*!*Nov*!*Dec")
+	F.Intrinsic.String.Split(V.Local.sMonths,"*!*",V.Local.sMonths)
+	
+	F.Data.DataView.Create("dtQualHist","dvQualHist")
+	F.Data.DataView.ToDataTableDistinct("dtQualHist","dvQualHist","dtYear","Year",True)
+	F.Data.DataView.Close("dtQualHist","dvQualHist")
+	
+	Gui.frmQual.GsChartCost.ClearChart
+	Gui.frmQual.GsChartQty.ClearChart
+	
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtYear.RowCount--,1)
+		F.Intrinsic.Control.If(V.DataTable.dtYear.RowCount,>,1)
+			V.Local.sYear.Set(V.DataTable.dtYear(V.Local.iCnt).Year!FieldVal)
+		F.Intrinsic.Control.Else
+			V.Local.sYear.Set("")
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.For(V.Local.iCnt2,1,12,1)
+			F.Intrinsic.String.Build("Year = {0} And Month = {1}",V.DataTable.dtYear(V.Local.iCnt).Year!FieldVal,V.Local.iCnt2,V.Local.sFilter)
+			F.Data.DataTable.Compute("dtQualHist","Sum(Disposed_Value)",V.Local.sFilter,V.Local.fCost)
+			F.Data.DataTable.Compute("dtQualHist","Sum(Qty_Disposed)",V.Local.sFilter,V.Local.fQty)
+			F.Intrinsic.Control.If(V.Local.iCnt2,=,1)
+				F.Intrinsic.String.Build("{0}*!*{1}",V.Local.sMonths(V.Local.iCnt2),V.Local.fCost,V.Local.sSeriesCost)
+				F.Intrinsic.String.Build("{0}*!*{1}",V.Local.sMonths(V.Local.iCnt2),V.Local.fQty,V.Local.sSeriesQty)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("{0}!*!{1}*!*{2}",V.Local.sSeriesCost,V.Local.sMonths(V.Local.iCnt2),V.Local.fCost,V.Local.sSeriesCost)
+				F.Intrinsic.String.Build("{0}!*!{1}*!*{2}",V.Local.sSeriesQty,V.Local.sMonths(V.Local.iCnt2),V.Local.fQty,V.Local.sSeriesQty)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.iCnt2)
+
+		F.Intrinsic.Control.If(V.Local.iCnt,=,0)
+			Gui.frmQual.GsChartCost.CreateVertBarChart("Disposed Cost by Month",V.DataTable.dtYear(V.Local.iCnt).Year!FieldVal,V.Local.sSeriesCost,False)
+			Gui.frmQual.GsChartQty.CreateVertBarChart("Disposed Quantity by Month",V.DataTable.dtYear(V.Local.iCnt).Year!FieldVal,V.Local.sSeriesQty,False)
+		F.Intrinsic.Control.Else
+			Gui.frmQual.GsChartCost.AddSeriesToBarChart(V.DataTable.dtYear(V.Local.iCnt).Year!FieldVal,V.Local.sSeriesCost)
+			Gui.frmQual.GsChartQty.AddSeriesToBarChart(V.DataTable.dtYear(V.Local.iCnt).Year!FieldVal,V.Local.sSeriesQty)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	
+	F.Data.DataTable.Close("dtYear")
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadCharts.End
+
+Program.Sub.Serialize.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSerialize.Declare
+	
+	'GvCostSerialize
+	Gui.frmQual.GsGCCost.Serialize("gvQualHist",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVQUALHISTCOST",4668,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	
+	'GvQtySerialize
+	Gui.frmQual.GsGCQty.Serialize("gvQualHist",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVQUALHISTQTY",4668,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.Serialize.End
+
+Program.Sub.Deserialize.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSerialize.Declare
+	
+	'GvCostSerialize
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"GVQUALHISTCOST",4668,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		Gui.frmQual.GsGCCost.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+	
+	'GvQtySerialize
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"GVQUALHISTQTY",4668,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		Gui.frmQual.GsGCQty.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.Deserialize.End
+
+Program.Sub.picGSSLogo_DblClick.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmWeb..Show
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.picGSSLogo_DblClick.End
+
+Program.Sub.frmWeb_UnLoad.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmWeb..Visible(False)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.frmWeb_UnLoad.End
+
+Program.Sub.cmdGSS_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Task.ShellExec(0,"Open","http://www.globalshopsolutions.com/","","",0)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdGSS_Click.End
+
+Program.Sub.cmdServ_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Task.ShellExec(0,"Open","http://gss-service.com/","","",0)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdServ_Click.End
+
+Program.Sub.cmdUpd_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Task.ShellExec(0,"Open","http://gss-updates.com/","","",0)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdUpd_Click.End
+
+Program.Sub.Comments.Start
+${$5$}$2.0.0.0$}$2
+${$6$}$triley$}$20231002133836769$}$iK6nerqp9nur1h1iSBfRKBBz1ENCgYv6g64z+8p/2K3skTX6DTWX9wC9Aw4zxQw2SFREqZE9Z7k=
+Program.Sub.Comments.End
